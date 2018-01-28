@@ -1,0 +1,35 @@
+
+
+                      #timer-name, #timer-h {
+	                      margin-left: 0.5em; }
+
+#timer-name, #timer-s {
+	margin-right: 0.5em; }
+
+#timer-h, #timer-m, #timer-s {
+	width: 2em; text-align: right; }
+
+input[type="text"] {
+	border: 1px solid #222; }
+
+#timers-table {
+	border: none; border-spacing: 2px; }
+
+#timers-table td {
+	font: large sans-serif; color: #000;
+	padding: 1ex 1em; }
+
+.timer-active {
+	background-color: #ded; }
+
+.timer-fired {
+	background-color: #faa; }
+
+.timer-suspended {
+	background-color: #bce; }
+
+.timer-control {
+	font: small sans-serif; color: #238;
+	text-decoration: underline; cursor: pointer;
+	margin: 0ex 0.5em; }
+

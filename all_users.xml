@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<usersWrapper>
+    <users id="1">
+        <id_user_data>1</id_user_data>
+        <userData>
+            <id>1</id>
+            <id_personal>1</id_personal>
+            <userPersonal id="1">
+                <birthday>2018-01-02</birthday>
+                <email>email@email.com</email>
+                <first_name>bla-</first_name>
+                <last_name>bla-</last_name>
+                <sex>m</sex>
+                <stringListIdMonitoringLots>1</stringListIdMonitoringLots>
+            </userPersonal>
+            <login>admin</login>
+            <password>-715946932</password>
+            <date_reg>2018-01-10</date_reg>
+            <blocking>false</blocking>
+        </userData>
+        <isAdmin>true</isAdmin>
+    </users>
+</usersWrapper>

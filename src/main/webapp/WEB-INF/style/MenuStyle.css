@@ -1,0 +1,122 @@
+#menu ul li {display:inline;}
+#menu ul {border-bottom:1px solid
+#000000; margin-left:0;
+	padding:3px 0;}
+
+
+#menu ul li b {text-decoration:none; margin-left:3px; color:0425f1; border:1px  solid#000000; padding: 3px 4px;border-bottom:0; background:#6699FF; }
+#menu ul li b:link{color:493;}
+#menu ul li b:visited{color:#0425f1;}
+#menu ul li b:hover
+{color:#00;
+	solid#000000;
+	border-color:#000000}
+
+#menu ul li a {text-decoration:none; margin-left:3px; border:1px solid#000000; padding: 3px 4px;border-bottom:0; background:#CEDEFF; }
+#menu ul li a:link{color:493;}
+#menu ul li a:visited{color:#0425f1;}
+#menu ul li a:hover
+{color:#00;
+	background:#6699FF;
+	border-color:#227}
+#menu ui li a#nowopen {background:#fff; border-bottom:1px solid #fff;}
+body {
+	background-color: #FFFFFF;
+	color: #000000;
+	font-family: Arial,FreeSans,sans-serif;
+	font-size: 110%;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+}
+h1 {
+	color: #003399;
+	font-size: 140%;
+	font-weight: bold;
+	margin: 0px 10px 0px 10px;
+	padding: 5px 0px 5px 0px;
+	width: 90%;
+}
+div.scrollmenu {
+	color: #808080;
+	font-size: 95%;
+	margin: 1px 1px 1px 1px;
+	padding: 1px 1px 1px 1px;
+	position: relative;
+	text-align: left;
+}
+div.scrollmenu ul li.menugroup {
+	color: #000000;
+}
+div.scrollmenu ul li ul {
+	color: #808080;
+}
+div.scrollmenu a{
+	color: #000000;
+	text-decoration: none;
+}
+div.scrollmenu a:visited{
+	color: #000000;
+	text-decoration: none;
+}
+div.scrollmenu a:hover{
+	background-color: #003399;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+div.scrollmenu ul{
+	list-style-type: bullet;
+	margin: 0px 0px 0px 10px;
+	padding: 5px 5px 5px 10px;
+}
+div.scrollmenu ul li{
+	font-weight: bold;
+}
+div.minibutton {
+	clear: both;
+	margin: 0px 0px 0px 0px;
+	text-align: center;
+}
+div.minibutton span.copyright {
+	background: #FFFFFF;
+	color: #000000;
+	font-family: Arial,FreeSans,sans-serif;
+	font-size: 70%;
+	text-decoration: none;
+}
+
+
+
+#back ul li {display:inline;}
+#back ul {border-bottom:1px solid
+#000000; margin-left:0;
+	padding:3px 0;}
+
+#back ul li a {text-decoration:none; margin-left:3px; border:1px solid#000000; padding: 3px 4px;border-bottom:0; background:#CEDEFF; }
+#back ul li a:link{color:493;}
+#back ul li a:visited{color:#0425f1;}
+#back ul li a:hover
+{color:#00;
+	background:#6699FF;
+	border-color:#227}
+#back ui li a#nowopen {background:#fff; border-bottom:1px solid #fff;}
+body {
+	background-color: #FFFFFF;
+	color: #000000;
+	font-family: Arial,FreeSans,sans-serif;
+	font-size: 110%;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+}
+

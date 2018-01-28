@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+html {
+    background-color: #fff;
+    font-size: 13px;
+}
+.container {
+    margin: 1% auto;
+    width: 75%;
+    border: 1px solid #E5E2E5;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+}
+.container.one {
+    font-weight: bold;
+    padding: 3%;
+}
+span, input, label, img, select {
+    display: inline-block;
+}
+input, select {
+    margin: 1%;
+    padding: 0.8%;
+    border: 1px solid #BEBEBE;
+    width: 45%;
+}
+label, img {
+    width: 10.5em;
+}
+label {
+    position: relative;
+}
+span{
+    color: #018D09;
+}
+input ~ span::after {
+    content: '';
+    padding-left: 5px;
+    vertical-align: middle;
+}
+
+
+/* Раскрашиваем input в фокусе */
+input:focus ~ span::after,
+input:focus:valid ~ span::after,
+input:focus:invalid ~ span::after {
+    content: '';
+}
+
+/* Раскрашиваем input в фокусе */
+input:focus ~ span lt::after,
+input:focus:valid ~ span lt::after,
+input:focus:invalid ~ span lt::after {
+    content: 'Для заполнения используйте цифры или латинские буквы';
+}
+
+/* Раскрашиваем корректные input  */
+input:valid ~ span::after {
+    content: '✓';
+    color: #4E9B5A;
+}
+
+/* Раскрашиваем ошибочные input */
+input:invalid ~ span::after {
+    content: '×';
+    color: #B11117;
+}
+
+.container.two {
+    background-color: #E5E2E5;
+    padding: 1% 0 1% 12%;
+}
+button {
+    color: #fff;
+    background-color: #029E0A;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -o-border-radius: 25px;
+    border-radius: 25px;
+    border: none;
+    padding: 0.8% 3%;
+    -webkit-background: linear-gradient(#018D09, #0BE100);
+    -moz-background: linear-gradient(#018D09, #0BE100);
+    -o-background: linear-gradient(#018D09, #0BE100);
+    background: linear-gradient(#018D09, #0BE100);
+    position: relative;
+    overflow: hidden;
+}
+button::before {
+    position: absolute;
+    content: '';
+    height: 50%;
+    width: 96%;
+    left: 2%;
+    top: 0.9px;
+    -webkit-background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.4));
+    -moz-background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.4));
+    -o-background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.4));
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.4));
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -o-border-radius: 25px;
+    border-radius: 25px;
+}
