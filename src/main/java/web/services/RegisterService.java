@@ -1,20 +1,20 @@
 package web.services;
 
-import com.sun.org.apache.bcel.internal.generic.DADD;
+
 import db.DAO.UserDao;
 import db.DAO.UserDataDao;
 import db.DAO.UserPersonalDao;
-import db.POJO.User;
 import db.POJO.UserData;
 import db.POJO.UserPersonal;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Component;
 
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-
+//@Component
 public class RegisterService {
     private static final Logger log = Logger.getLogger(RegisterService.class);
 

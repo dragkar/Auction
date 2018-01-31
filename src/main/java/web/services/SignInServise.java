@@ -1,10 +1,12 @@
 package web.services;
 
-import db.DAO.UserDao;
-import db.DAO.UserDataDao;
-import db.POJO.User;
-import org.apache.log4j.Logger;
 
+import db.DAO.UserDataDao;
+
+import org.apache.log4j.Logger;
+import org.springframework.stereotype.Component;
+
+//@Component
 public class SignInServise {
     private static final Logger log = Logger.getLogger(SignInServise.class);
     private UserDataDao userDataDao = new UserDataDao();

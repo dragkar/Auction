@@ -1,17 +1,17 @@
 <%--
   Created by IntelliJ IDEA.
   User: admin
-  Date: 23.01.2018
-  Time: 12:00
+  Date: 31.01.2018
+  Time: 0:35
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Форма регистрации</title>
+    <title>$Title$</title>
     <link rel="stylesheet" type="text/css" href="/resources/style/MenuStyle.css" >
-
 </head>
+<body>
 <% if (request.getSession().getAttribute("login") != null) {%>
 <p align="right"><a href="/profile"><%=request.getSession().getAttribute("login")%>
 </a> | <a href="/indexEx?exit=exit">Выход</a> </p>
@@ -30,6 +30,9 @@
     </ul>
     <br>
 </div>
-<p>Тут будет личная инфа</p>
+    Я еще не работаю, на кнопку добавить можно нажимать,чтоб полюбоваться моим творением
+    <form action="/newlot">
+        <button type="submit">создать новый лот</button>
+    </form>
 </body>
 </html>

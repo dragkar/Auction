@@ -12,30 +12,31 @@
     <meta http-equiv="x-ua-compatible" content="ie-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Форма регистрации</title>
-    <link rel="stylesheet" href="../style/style.css">
-    <link rel="stylesheet" type="text/css" href="../style/MenuStyle.css">
+    <link rel="stylesheet" href="/resources/style/style.css">
+    <link rel="stylesheet" type="text/css" href="/resources/style/MenuStyle.css">
 </head>
 <body>
 <% if (request.getSession().getAttribute("login") != null) {%>
-<p align="right"><a href="profile"><%=request.getSession().getAttribute("login")%>
-</a></p>
+<p align="right"><a href="/profile"><%=request.getSession().getAttribute("login")%>
+</a> | <a href="/indexEx?exit=exit">Выход</a> </p>
 <%} else { %>
 <br>
-<div><p align="right"><a href="signIn">Вход</a> / <a href="register">Регистрация</a></p></div>
+<div><p align="right"><a href="/signin">Вход</a> / <a href="/register">Регистрация</a></p></div>
 <%}%>
 <br>
 <div id="menu">
     <ul>
-
-        <li><a href="home">Главная</a></li>
-        <li><a href="allLots">Список лотов</a></li>
-
-        <li><a href="hello?message=bla-bla">Что-нибудь еще</a></li>
+        <li><a href="/index">Главная</a></li>
+        <li><a href="/alllots">Список лотов</a></li>
+        <% if (request.getSession().getAttribute("login") != null) {%>
+        <li><a href="/mylots">Мои лоты</a></li>
+        <%} %>
     </ul>
     <br>
 </div>
 <p align="center" style="font-size:30px; color:#47a111">
-    <%=request.getParameter("message") != null ? request.getParameter("message") : "" %>
+    <%--<%=request.getParameter("message") != null ? request.getParameter("message") : "" %>--%>
+<p  align="center" style="font-size:30px; color:#d8000e">${message}</p>
 </p>
 <% if (request.getSession().getAttribute("login") == null) {%>
 <form action="${pageContext.request.contextPath}/register" method="post">
@@ -46,16 +47,16 @@
             <input type="text" name="userLogin" pattern="^[a-zA-Z0-9]+$"><span><lt></lt></span></p>
 
         <p><label name="user_name_label">Имя *</label>
-            <input type="text" name="user_name" pattern="^[А-Яа-яЁё\s]+$"><span></span></p>
+            <input type="text" name="user_name" pattern="^[а-яА-ЯёЁa-zA-Z0-9]+$"><span></span></p>
 
         <p><label name="user_surname_label">Фамилия</label>
-            <input type="text" name="user_surname" pattern="^[А-Яа-яЁё\s]+$"><span></span></p>
+            <input type="text" name="user_surname" pattern="^[а-яА-ЯёЁa-zA-Z0-9]+$"><span></span></p>
 
         <p><label name="userSecond_label">Отчество</label>
-            <input type="text" name="userSecond" pattern="^[А-Яа-яЁё\s]+$"><span></span></p>
+            <input type="text" name="userSecond" pattern="^[а-яА-ЯёЁa-zA-Z0-9]+$"><span></span></p>
 
         <p><label name="birthday_label">День рождения</label>
-            <input type="text" name="birthday" pattern="^[А-Яа-яЁё\s]+$"><span></span></p>
+            <input type="text" name="birthday" pattern="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$"><span></span></p>
 
         <p><label name="gender_label">Ваш пол</label>
             <select name="gender">

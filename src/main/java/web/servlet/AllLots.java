@@ -21,14 +21,8 @@ private AllLotsService allLotsService;
         allLotsService = new AllLotsService();
 
         req.setAttribute("lots",allLotsService.getAllLots());
-        req.getRequestDispatcher("/alllots.jsp").forward(req,resp);
+        req.getRequestDispatcher("WEB-INF/pages/alllots.jsp").forward(req,resp);
 
     }
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)  {
-//        allLotsService = new AllLotsService();
-//        req.setAttribute("lots",allLotsService.getAllLots());
-//        req.getRequestDispatcher("/alllots.jsp").forward(req,resp);
-    }
 }

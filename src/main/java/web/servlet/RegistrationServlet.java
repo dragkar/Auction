@@ -1,6 +1,5 @@
 package web.servlet;
 
-import db.POJO.User;
 import org.apache.log4j.Logger;
 import web.services.RegisterService;
 
@@ -10,20 +9,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.sql.SQLException;
 
 /**
  * Servlet created register page
  */
-public class RegistaerServlet extends HttpServlet {
-    private static final Logger log = Logger.getLogger(RegistaerServlet.class);
+public class RegistrationServlet extends HttpServlet {
+    private static final Logger log = Logger.getLogger(RegistrationServlet.class);
     private static RegisterService registerService;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setCharacterEncoding("CP1251");
         req.setCharacterEncoding("UTF-8");
-        req.getRequestDispatcher("/register.jsp").forward(req, resp);
+        req.getRequestDispatcher("WEB-INF/pages/register.jsp").forward(req, resp);
     }
 
     @Override
@@ -62,7 +60,7 @@ public class RegistaerServlet extends HttpServlet {
             }
 
         try {
-            req.getRequestDispatcher("/register.jsp?message=" + message).forward(req, resp);
+            req.getRequestDispatcher("WEB-INF/pages/register.jsp?message=" + message).forward(req, resp);
         } catch (ServletException e) {
             log.error(e.getStackTrace());
         } catch (IOException e) {

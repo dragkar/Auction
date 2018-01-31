@@ -6,11 +6,12 @@ import db.POJO.UserPersonal;
 import db.connection.ConnectionManager;
 import db.connection.ConnectionManagerPostgeImpl;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Component;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
+//@Component
 public class UserDao implements UserDAOImpl {
     private static final Logger log = Logger.getLogger(UserDao.class);
     private static ConnectionManager connectionManager =

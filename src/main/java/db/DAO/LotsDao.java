@@ -5,12 +5,14 @@ import db.POJO.UserPersonal;
 import db.connection.ConnectionManager;
 import db.connection.ConnectionManagerPostgeImpl;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Component;
 
 import java.sql.*;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
+//@Component
 public class LotsDao implements LotsDaoImpl {
     private static final Logger log = Logger.getLogger(LotsDao.class);
     private static ConnectionManager connectionManager =

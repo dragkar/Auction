@@ -17,7 +17,7 @@ public class lotPageServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)  {
         try {
-            req.getRequestDispatcher("/lotPage.jsp").forward(req, resp);
+            req.getRequestDispatcher("WEB-INF/pages/lotPage.jsp").forward(req, resp);
         } catch (ServletException e) {
             log.error(e.getStackTrace());
         } catch (IOException e) {
@@ -25,8 +25,5 @@ public class lotPageServlet extends HttpServlet{
         }
     }
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
-    }
+
 }

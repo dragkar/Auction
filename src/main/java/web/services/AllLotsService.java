@@ -4,10 +4,11 @@ import db.DAO.LotsDao;
 import db.POJO.Lots;
 import db.POJO.User;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-
+//@Component
 public class AllLotsService {
     private LotsDao lotsDao = new LotsDao();
     private static final Logger log = Logger.getLogger(AllLotsService.class);

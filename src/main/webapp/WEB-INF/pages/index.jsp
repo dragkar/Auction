@@ -9,29 +9,29 @@
 <html>
 <head>
     <title>$Title$</title>
-    <link rel="stylesheet" type="text/css" href="../style/MenuStyle.css" >
+    <link rel="stylesheet" type="text/css" href="/resources/style/MenuStyle.css" >
 </head>
 <body>
 <% if (request.getSession().getAttribute("login") != null) {%>
-<p align="right"><a href="profile"><%=request.getSession().getAttribute("login")%>
-</a> | <a href="home?exit=exit">Выход</a> </p>
+<p align="right"><a href="/profile"><%=request.getSession().getAttribute("login")%>
+</a> | <a href="/indexEx?exit=exit">Выход</a> </p>
 <%} else { %>
 <br>
-<div><p align="right"><a href="signIn">Вход</a> / <a href="register">Регистрация</a></p></div>
+<div><p align="right"><a href="/signin">Вход</a> / <a href="/register">Регистрация</a></p></div>
 <%}%>
 
-<p  align="center" style="font-size:30px; color:#d8000e"> <b>Аукцион незабываемых вредилок </b> </p>
+<p  align="center" style="font-size:30px; color:#d8000e"> <b>бла-бла-бла аукцион </b> </p>
 
 
 <div id="menu">
     <ul>
-        <li><b href="home">Главная</b></li>
-        <li><a href="allLots">Список лотов</a></li>
-
-        <li><a href="hello?message=bla-bla">Что-нибудь еще</a></li>
+        <li><b href="/index">Главная</b></li>
+        <li><a href="/alllots">Список лотов</a></li>
+        <% if (request.getSession().getAttribute("login") != null) {%>
+        <li><a href="/mylots">Мои лоты</a></li>
+        <%} %>
     </ul>
     <br>
 </div>
-<a href="hello?message=bla-bla">Hello</a>
 </body>
 </html>

@@ -9,24 +9,26 @@
 <html>
 <head>
     <title>Авторизация</title>
-    <link rel="stylesheet" type="text/css" href="../style/styleLogin.css">
-    <link rel="stylesheet" type="text/css" href="../style/MenuStyle.css">
+    <link rel="stylesheet" type="text/css" href="/resources/style/styleLogin.css">
+    <link rel="stylesheet" type="text/css" href="/resources/style/MenuStyle.css">
 </head>
 <body>
 <br>
 <div id="menu">
     <ul>
 
-        <li><a href="home">Главная</a></li>
-        <li><a href="allLots">Список лотов</a></li>
+        <li><a href="/index">Главная</a></li>
+        <li><a href="/alllots">Список лотов</a></li>
 
         <li><a href="hello?message=bla-bla">Что-нибудь еще</a></li>
     </ul>
     <br>
 </div>
 
+<p  align="center" style="font-size:30px; color:#d8000e">${message}</p>
+
 <p align="center" style="color: black; font-size: 25px">Авторизация</p>
-<form class="form-1" action="${pageContext.request.contextPath}/signIn" method="post">
+<form class="form-1" action="${pageContext.request.contextPath}/signin" method="post">
     <p class="field">
         <input type="text" name="login" placeholder="Логин">
         <i class="icon-user icon-large"></i>

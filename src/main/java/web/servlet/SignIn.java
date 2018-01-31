@@ -16,7 +16,7 @@ public class SignIn extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
         try {
-            req.getRequestDispatcher("/signin.jsp").forward(req,resp);
+            req.getRequestDispatcher("WEB-INF/pages/signin.jsp").forward(req,resp);
         } catch (ServletException e) {
             log.error(e.getStackTrace());
         } catch (IOException e) {
@@ -27,22 +27,22 @@ public class SignIn extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)  {
         String login = req.getParameter("login");
-        String password = req.getParameter("password");
+    String password = req.getParameter("password");
         try {
         if(signInServise.Auth(login,password)){
             req.getSession().setAttribute("login", login);
 
-                req.getRequestDispatcher("/index.jsp").forward(req,resp);
+            req.getRequestDispatcher("WEB-INF/pages/index.jsp").forward(req,resp);
 
         }else{
             String message = "Введена фигня, попробуй еще раз или свали !!! ";
-            req.getRequestDispatcher("/signin.jsp?message=" + message).forward(req, resp);
+            req.getRequestDispatcher("WEB-INF/pages/signin.jsp?message=" + message).forward(req, resp);
         }
-        } catch (ServletException e) {
+    } catch (ServletException e) {
 
-            log.error(e.getStackTrace());
-        } catch (IOException e) {
-            log.error(e.getStackTrace());
-        }
+        log.error(e.getStackTrace());
+    } catch (IOException e) {
+        log.error(e.getStackTrace());
     }
+}
 }
