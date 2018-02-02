@@ -1,13 +1,13 @@
 package web.services;
 
 
+import db.DAO.UserDAOImpl;
 import db.DAO.UserDao;
-import db.DAO.UserDataDao;
-import db.DAO.UserPersonalDao;
+import db.DAO.UserDataDaoImpl;
+import db.DAO.UserPersonalDaoImpl;
 import db.POJO.UserData;
 import db.POJO.UserPersonal;
-import org.apache.log4j.Logger;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.SQLException;
 import java.text.DateFormat;
@@ -16,11 +16,13 @@ import java.util.Calendar;
 import java.util.Date;
 //@Component
 public class RegisterService {
-    private static final Logger log = Logger.getLogger(RegisterService.class);
-
-    private UserDao userDao = new UserDao();
-    private UserPersonalDao userPersonalDao = new UserPersonalDao();
-    private UserDataDao userDataDao = new UserDataDao();
+  //  private static final Logger log = Logger.getLogger(RegisterService.class);
+    @Autowired
+    private UserDAOImpl userDao = new UserDao();
+    @Autowired
+    private UserPersonalDaoImpl userPersonalDao;
+    @Autowired
+    private UserDataDaoImpl userDataDao;
 
     private String login;
     private String password;

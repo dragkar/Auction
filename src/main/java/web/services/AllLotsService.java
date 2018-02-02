@@ -2,16 +2,12 @@ package web.services;
 
 import db.DAO.LotsDao;
 import db.POJO.Lots;
-import db.POJO.User;
-import org.apache.log4j.Logger;
-import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
 //@Component
 public class AllLotsService {
     private LotsDao lotsDao = new LotsDao();
-    private static final Logger log = Logger.getLogger(AllLotsService.class);
+  // private static final Logger log = Logger.getLogger(AllLotsService.class);
     /**
      * Функция запрашивает все лоты и возвращает список все, у которых дата окончания проведения еще не наступила
      * @return возвращает list лотов

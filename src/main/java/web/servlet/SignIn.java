@@ -1,7 +1,5 @@
 package web.servlet;
 
-import db.POJO.User;
-import org.apache.log4j.Logger;
 import web.services.SignInServise;
 
 import javax.servlet.ServletException;
@@ -11,16 +9,16 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class SignIn extends HttpServlet {
-    private static final Logger log = Logger.getLogger(SignIn.class);
+  //  private static final Logger log = Logger.getLogger(SignIn.class);
  private SignInServise signInServise = new SignInServise();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
         try {
             req.getRequestDispatcher("WEB-INF/pages/signin.jsp").forward(req,resp);
         } catch (ServletException e) {
-            log.error(e.getStackTrace());
+           // log.error(e.getStackTrace());
         } catch (IOException e) {
-            log.error(e.getStackTrace());
+        //    log.error(e.getStackTrace());
         }
     }
 
@@ -40,9 +38,9 @@ public class SignIn extends HttpServlet {
         }
     } catch (ServletException e) {
 
-        log.error(e.getStackTrace());
+      //  log.error(e.getStackTrace());
     } catch (IOException e) {
-        log.error(e.getStackTrace());
+      //  log.error(e.getStackTrace());
     }
 }
 }

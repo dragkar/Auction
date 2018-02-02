@@ -1,22 +1,20 @@
 package web.controllers;
 
-import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import web.services.SignInServise;
-import web.servlet.SignIn;
 
-import javax.servlet.ServletException;
-import java.io.IOException;
 import java.util.Map;
 
 @Controller
 @SessionAttributes(names = "login")
 
 public class SignInController {
-    private static final Logger log = Logger.getLogger(SignIn.class);
+  //  private static final Logger log = Logger.getLogger(SignIn.class);
     private SignInServise signInServise = new SignInServise();
 
     @RequestMapping(value = "/signin", method = RequestMethod.POST)

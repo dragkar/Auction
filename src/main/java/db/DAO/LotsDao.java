@@ -1,20 +1,16 @@
 package db.DAO;
 
 import db.POJO.Lots;
-import db.POJO.UserPersonal;
 import db.connection.ConnectionManager;
 import db.connection.ConnectionManagerPostgeImpl;
-import org.apache.log4j.Logger;
-import org.springframework.stereotype.Component;
 
 import java.sql.*;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
 //@Component
 public class LotsDao implements LotsDaoImpl {
-    private static final Logger log = Logger.getLogger(LotsDao.class);
+//    private static final Logger log = Logger.getLogger(LotsDao.class);
     private static ConnectionManager connectionManager =
             ConnectionManagerPostgeImpl.getInstance();
 
@@ -46,7 +42,7 @@ public class LotsDao implements LotsDaoImpl {
                 lots.add(lot);
             }
         } catch (SQLException e) {
-            log.error(e.getStackTrace());
+          //  log.error(e.getStackTrace());
         }
         return lots;
 
@@ -86,7 +82,7 @@ public class LotsDao implements LotsDaoImpl {
 
         connection.close();
         } catch (SQLException e) {
-            log.error(e.getStackTrace());
+          //  log.error(e.getStackTrace());
         }
         return lots;
     }
@@ -111,7 +107,7 @@ public class LotsDao implements LotsDaoImpl {
             int result = preparedStmt.executeUpdate();
             if (result > 0) return true;
         } catch (SQLException e) {
-            log.error(e.getStackTrace());
+        //    log.error(e.getStackTrace());
 
         }
         return false;
@@ -155,7 +151,7 @@ public class LotsDao implements LotsDaoImpl {
             resultSet.next();
             result = resultSet.getInt("id");
         } catch (SQLException e) {
-            log.error(e.getStackTrace());
+          //  log.error(e.getStackTrace());
         }
         return result;
     }

@@ -1,11 +1,8 @@
 package db.DAO;
 
-import db.POJO.UserData;
 import db.POJO.UserPersonal;
 import db.connection.ConnectionManager;
 import db.connection.ConnectionManagerPostgeImpl;
-import org.apache.log4j.Logger;
-import org.springframework.stereotype.Component;
 
 import java.sql.*;
 import java.text.ParseException;
@@ -14,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 //@Component
 public class UserPersonalDao implements UserPersonalDaoImpl {
-    private static final Logger log = Logger.getLogger(UserPersonalDao.class);
+  //  private static final Logger log = Logger.getLogger(UserPersonalDao.class);
     private static ConnectionManager connectionManager =
             ConnectionManagerPostgeImpl.getInstance();
 
@@ -43,7 +40,7 @@ public class UserPersonalDao implements UserPersonalDaoImpl {
                 dataUsers.add(userPersonal);
             }
         } catch (SQLException e) {
-            log.error(e.getStackTrace());
+         //   log.error(e.getStackTrace());
         }
         return dataUsers;
     }
@@ -102,7 +99,7 @@ public class UserPersonalDao implements UserPersonalDaoImpl {
             int result = preparedStmt.executeUpdate();
             if (result > 0) return true;
         } catch (SQLException e) {
-            log.error(e.getStackTrace());
+         //   log.error(e.getStackTrace());
         }
         return false;
     }
@@ -118,7 +115,7 @@ public class UserPersonalDao implements UserPersonalDaoImpl {
             int result = preparedStmt.executeUpdate();
             if (result > 0) return true;
         } catch (SQLException e) {
-            log.error(e.getStackTrace());
+         //   log.error(e.getStackTrace());
         }
         return false;
     }
@@ -148,7 +145,7 @@ public class UserPersonalDao implements UserPersonalDaoImpl {
             resultSet.next();
             result = resultSet.getInt("id");
         } catch (SQLException e) {
-            log.error(e.getStackTrace());
+         //   log.error(e.getStackTrace());
         }
         return result;
     }
@@ -165,7 +162,7 @@ public class UserPersonalDao implements UserPersonalDaoImpl {
         try {
             date = (Date) format.parse(strDate);
         } catch (ParseException e) {
-            log.error(e.getStackTrace());
+        //    log.error(e.getStackTrace());
         }
         return date;
     }

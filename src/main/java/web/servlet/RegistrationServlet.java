@@ -1,6 +1,5 @@
 package web.servlet;
 
-import org.apache.log4j.Logger;
 import web.services.RegisterService;
 
 import javax.servlet.ServletException;
@@ -14,7 +13,7 @@ import java.io.UnsupportedEncodingException;
  * Servlet created register page
  */
 public class RegistrationServlet extends HttpServlet {
-    private static final Logger log = Logger.getLogger(RegistrationServlet.class);
+   // private static final Logger log = Logger.getLogger(RegistrationServlet.class);
     private static RegisterService registerService;
 
     @Override
@@ -30,7 +29,7 @@ public class RegistrationServlet extends HttpServlet {
         try {
             req.setCharacterEncoding("UTF-8");
         } catch (UnsupportedEncodingException e) {
-            log.error(e.getStackTrace());
+        //    log.error(e.getStackTrace());
         }
 
 
@@ -62,9 +61,9 @@ public class RegistrationServlet extends HttpServlet {
         try {
             req.getRequestDispatcher("WEB-INF/pages/register.jsp?message=" + message).forward(req, resp);
         } catch (ServletException e) {
-            log.error(e.getStackTrace());
+       //     log.error(e.getStackTrace());
         } catch (IOException e) {
-            log.error(e.getStackTrace());
+         //   log.error(e.getStackTrace());
         }
     }
 }

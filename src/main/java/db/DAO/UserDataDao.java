@@ -4,8 +4,6 @@ import db.POJO.UserData;
 import db.POJO.UserPersonal;
 import db.connection.ConnectionManager;
 import db.connection.ConnectionManagerPostgeImpl;
-import org.apache.log4j.Logger;
-import org.springframework.stereotype.Component;
 
 import java.sql.*;
 import java.text.ParseException;
@@ -14,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 //@Component
 public class UserDataDao implements UserDataDaoImpl {
-    private static final Logger log = Logger.getLogger(UserDataDao.class);
+  //  private static final Logger log = Logger.getLogger(UserDataDao.class);
     private static ConnectionManager connectionManager =
             ConnectionManagerPostgeImpl.getInstance();
 
@@ -61,7 +59,7 @@ public class UserDataDao implements UserDataDaoImpl {
         }
         connection.close();
         } catch (SQLException e) {
-            log.error(e.getStackTrace());
+        //    log.error(e.getStackTrace());
         }
         return dataUsers;
     }
@@ -106,7 +104,7 @@ public class UserDataDao implements UserDataDaoImpl {
 
         connection.close();
         } catch (SQLException e) {
-            log.error(e.getStackTrace());
+        //    log.error(e.getStackTrace());
         }
         return userData;
     }
@@ -128,9 +126,9 @@ public class UserDataDao implements UserDataDaoImpl {
             int result = preparedStmt.executeUpdate();
             if (result > 0) return true;
         } catch (SQLException e) {
-            log.error(e.getStackTrace());
+         //   log.error(e.getStackTrace());
         } catch (ParseException e) {
-            log.error(e.getStackTrace());
+         //   log.error(e.getStackTrace());
         }
         return false;
     }
@@ -151,7 +149,7 @@ public class UserDataDao implements UserDataDaoImpl {
             int result = preparedStmt.executeUpdate();
             if (result > 0) return true;
         } catch (SQLException e) {
-            log.error(e.getStackTrace());
+         //   log.error(e.getStackTrace());
         }
         return false;
     }
@@ -175,9 +173,9 @@ public class UserDataDao implements UserDataDaoImpl {
             resultSet.next();
             result = resultSet.getInt("id");
         } catch (SQLException e) {
-            log.error(e.getStackTrace());
+         //   log.error(e.getStackTrace());
         } catch (ParseException e) {
-            log.error(e.getStackTrace());
+          //  log.error(e.getStackTrace());
         }
             return result;
         }
@@ -208,9 +206,9 @@ public class UserDataDao implements UserDataDaoImpl {
             resultSet.next();
             result = resultSet.getInt("id");
         } catch (SQLException e) {
-            log.error(e.getStackTrace());
+         //  log.error(e.getStackTrace());
         } catch (ParseException e) {
-            log.error(e.getStackTrace());
+        //    log.error(e.getStackTrace());
         }
         return result;
     }
@@ -230,7 +228,7 @@ public class UserDataDao implements UserDataDaoImpl {
                 return false;
             }
         } catch (SQLException e) {
-            log.error(e.getStackTrace());
+          //  log.error(e.getStackTrace());
         }
         return false;
     }
@@ -251,7 +249,7 @@ public class UserDataDao implements UserDataDaoImpl {
                 return false;
             }
         } catch (SQLException e) {
-            log.error(e.getStackTrace());
+         //   log.error(e.getStackTrace());
         }
         return false;
     }

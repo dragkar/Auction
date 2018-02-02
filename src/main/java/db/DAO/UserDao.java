@@ -5,15 +5,13 @@ import db.POJO.UserData;
 import db.POJO.UserPersonal;
 import db.connection.ConnectionManager;
 import db.connection.ConnectionManagerPostgeImpl;
-import org.apache.log4j.Logger;
-import org.springframework.stereotype.Component;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 //@Component
 public class UserDao implements UserDAOImpl {
-    private static final Logger log = Logger.getLogger(UserDao.class);
+   // private static final Logger log = Logger.getLogger(UserDao.class);
     private static ConnectionManager connectionManager =
             ConnectionManagerPostgeImpl.getInstance();
 
@@ -65,7 +63,7 @@ public class UserDao implements UserDAOImpl {
         }
         connection.close();
         } catch (SQLException e) {
-            log.error(e.getStackTrace());
+       //     log.error(e.getStackTrace());
         }
         return users;
     }
@@ -116,7 +114,7 @@ public class UserDao implements UserDAOImpl {
         }
         connection.close();
         } catch (SQLException e) {
-            log.error(e.getStackTrace());
+        //    log.error(e.getStackTrace());
         }
         return user;
     }
@@ -133,7 +131,7 @@ public class UserDao implements UserDAOImpl {
             int result = preparedStmt.executeUpdate();
             if (result > 0) return true;
         } catch (SQLException e) {
-            log.error(e.getStackTrace());
+          //  log.error(e.getStackTrace());
         }
         return false;
     }
@@ -149,7 +147,7 @@ public class UserDao implements UserDAOImpl {
             int result = preparedStmt.executeUpdate();
             if (result > 0) return true;
         } catch (SQLException e) {
-            log.error(e.getStackTrace());
+         //   log.error(e.getStackTrace());
         }
         return false;
     }
@@ -198,7 +196,7 @@ public class UserDao implements UserDAOImpl {
                     userPersonalDao.delete(idNewUserPersonal);
                 }
             } catch (SQLException e) {
-                log.error(e.getStackTrace());
+             //   log.error(e.getStackTrace());
                 userDataDao.delete(idNewUserData);
                 userPersonalDao.delete(idNewUserPersonal);
             }
@@ -229,7 +227,7 @@ public class UserDao implements UserDAOImpl {
                     return true;
                 }
             } catch (SQLException e) {
-                log.error(e.getStackTrace());
+             ///   log.error(e.getStackTrace());
             }
         return false;
     }

@@ -8,8 +8,9 @@
     <beans:component-scan base-package="web.services"/>
     <beans:component-scan base-package="db.DAO"/>
     <beans:component-scan base-package="db.connection"/>
-    <!--<beans:component-scan base-package="utils"/>-->
+    <!--<beans:component-scan base-package=" "/>-->
     <!--<beans:component-scan base-package="configs"/>-->
+
 
 
 
@@ -25,4 +26,21 @@
         </mvc:argument-resolvers>
     </mvc:annotation-driven>
     <mvc:resources mapping="/resources/**" location="/resources/" />
+
+
+
+    <bean id="userDao" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
+        <property name="serviceUrl" value="rmi://localhost:1198/userDaoUrl"/>
+        <property name="serviceInterface" value="db.DAO.UserDAOImpl"/>
+    </bean>
+
+    <bean id="userDataDao" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
+        <property name="serviceUrl" value="rmi://localhost:1198/userDataDaoUrl"/>
+        <property name="serviceInterface" value="db.DAO.UserDataDaoImpl"/>
+    </bean>
+
+    <bean id="userPersonalDao" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
+        <property name="serviceUrl" value="rmi://localhost:1198/userPersonalDaoUrl"/>
+        <property name="serviceInterface" value="db.DAO.UserPersonalDaoImpl"/>
+    </bean>
 </beans>

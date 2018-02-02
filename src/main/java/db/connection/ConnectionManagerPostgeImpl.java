@@ -1,13 +1,11 @@
 package db.connection;
 
-import org.apache.log4j.Logger;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionManagerPostgeImpl implements ConnectionManager {
-    private static final Logger log = Logger.getLogger(ConnectionManagerPostgeImpl.class);
+//    private static final Logger log = Logger.getLogger(ConnectionManagerPostgeImpl.class);
     private static ConnectionManager connectionManager;
     private static String urlDb ="jdbc:postgresql://localhost:5432/Auction";
     private static String nameDb = "postgres";
@@ -36,9 +34,9 @@ public class ConnectionManagerPostgeImpl implements ConnectionManager {
             );
 
         } catch (ClassNotFoundException e) {
-            log.error(e.getStackTrace());
+         //   log.error(e.getStackTrace());
         } catch (SQLException e) {
-            log.error(e.getStackTrace());
+        //    log.error(e.getStackTrace());
         }
         return connection;
     }

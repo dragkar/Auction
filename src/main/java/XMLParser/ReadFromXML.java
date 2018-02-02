@@ -1,7 +1,6 @@
 package XMLParser;
 
 import db.POJO.User;
-import org.apache.log4j.Logger;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -9,7 +8,7 @@ import javax.xml.bind.Unmarshaller;
 import java.io.File;
 
 public class ReadFromXML {
-    private static final Logger log = Logger.getLogger(ReadFromXML.class);
+  //  private static final Logger log = Logger.getLogger(ReadFromXML.class);
     private static void fromXmlToObject(String filePath) {
         try {
             // создаем объект JAXBContext - точку входа для JAXB
@@ -22,7 +21,7 @@ public class ReadFromXML {
             }
 
         } catch (JAXBException e) {
-            log.error(e.getStackTrace());
+        //    log.error(e.getStackTrace());
         }
 
     }

@@ -1,9 +1,7 @@
 package db.POJO;
 
-import org.apache.log4j.Logger;
-
 public class Lots {
-    private static final Logger log = Logger.getLogger(Lots.class);
+   // private static final Logger log = Logger.getLogger(Lots.class);
     private int id;
     //id владельца
     private int id_user_owner;

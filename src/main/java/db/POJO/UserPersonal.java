@@ -1,7 +1,5 @@
 package db.POJO;
 
-import org.apache.log4j.Logger;
-
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import java.util.ArrayList;
@@ -9,7 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class UserPersonal {
-    private static final Logger log = Logger.getLogger(UserPersonal.class);
+
     private int id;
     private String first_name;
     private String last_name;

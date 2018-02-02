@@ -6,8 +6,8 @@
         http://www.springframework.org/schema/beans/spring-beans-4.3.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 
-<bean:component-scan base-package="db.DAO"></bean:component-scan>
-    <bean:component-scan base-package="web.services"></bean:component-scan>
-    <bean id = "userDao" class="db.DAO.UserDao" scope="singleton"></bean>
- <bean id="userDataDao" class="db.DAO.UserDataDao"/>
+<!--<bean:component-scan base-package="db.DAO"></bean:component-scan>-->
+    <!--<bean:component-scan base-package="web.services"></bean:component-scan>-->
+    <!--<bean id = "userDao" class="db.DAO.UserDao" scope="singleton"></bean>-->
+ <!--<bean id="userDataDao" class="db.DAO.UserDataDao"/>-->
 </beans>

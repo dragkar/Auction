@@ -1,10 +1,11 @@
 package db.POJO;
 
 import db.DAO.UserDataDao;
-import org.apache.log4j.Logger;
 
-import javax.xml.bind.annotation.*;
-import java.sql.SQLException;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +14,7 @@ import java.util.List;
 
 @XmlRootElement(name = "Users")
 public class User {
-    private static final Logger log = Logger.getLogger(User.class);
+
     private UserDataDao userDataDao = new UserDataDao();
     private int id;
     private int id_user_data;

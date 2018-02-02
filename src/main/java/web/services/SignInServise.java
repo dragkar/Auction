@@ -1,15 +1,14 @@
 package web.services;
 
 
-import db.DAO.UserDataDao;
-
-import org.apache.log4j.Logger;
-import org.springframework.stereotype.Component;
+import db.DAO.UserDataDaoImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 
 //@Component
 public class SignInServise {
-    private static final Logger log = Logger.getLogger(SignInServise.class);
-    private UserDataDao userDataDao = new UserDataDao();
+  //  private static final Logger log = Logger.getLogger(SignInServise.class);
+    @Autowired
+    private UserDataDaoImpl userDataDao;
 
     /**
      * Функция авторизации

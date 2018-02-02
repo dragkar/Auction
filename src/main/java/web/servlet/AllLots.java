@@ -1,7 +1,5 @@
 package web.servlet;
 
-import db.POJO.User;
-import org.apache.log4j.Logger;
 import web.services.AllLotsService;
 
 import javax.servlet.ServletException;
@@ -11,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class AllLots extends HttpServlet{
-    private static final Logger log = Logger.getLogger(AllLots.class);
+  //  private static final Logger log = Logger.getLogger(AllLots.class);
 private AllLotsService allLotsService;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
