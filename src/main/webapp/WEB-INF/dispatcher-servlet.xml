@@ -29,18 +29,18 @@
 
 
 
-    <bean id="userDao" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
-        <property name="serviceUrl" value="rmi://localhost:1198/userDaoUrl"/>
-        <property name="serviceInterface" value="db.DAO.UserDAOImpl"/>
-    </bean>
+    <!--<bean id="userDao" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">-->
+        <!--<property name="serviceUrl" value="rmi://localhost:1198/userDaoUrl"/>-->
+        <!--<property name="serviceInterface" value="db.DAO.UserDAOImpl"/>-->
+    <!--</bean>-->
 
-    <bean id="userDataDao" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
-        <property name="serviceUrl" value="rmi://localhost:1198/userDataDaoUrl"/>
-        <property name="serviceInterface" value="db.DAO.UserDataDaoImpl"/>
-    </bean>
+    <!--<bean id="userDataDao" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">-->
+        <!--<property name="serviceUrl" value="rmi://localhost:1198/userDataDaoUrl"/>-->
+        <!--<property name="serviceInterface" value="db.DAO.UserDataDaoImpl"/>-->
+    <!--</bean>-->
 
-    <bean id="userPersonalDao" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
-        <property name="serviceUrl" value="rmi://localhost:1198/userPersonalDaoUrl"/>
-        <property name="serviceInterface" value="db.DAO.UserPersonalDaoImpl"/>
-    </bean>
+    <!--<bean id="userPersonalDao" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">-->
+        <!--<property name="serviceUrl" value="rmi://localhost:1198/userPersonalDaoUrl"/>-->
+        <!--<property name="serviceInterface" value="db.DAO.UserPersonalDaoImpl"/>-->
+    <!--</bean>-->
 </beans>

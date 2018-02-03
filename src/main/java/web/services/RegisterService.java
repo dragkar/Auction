@@ -17,11 +17,11 @@ import java.util.Date;
 //@Component
 public class RegisterService {
   //  private static final Logger log = Logger.getLogger(RegisterService.class);
-    @Autowired
+  //  @Autowired
     private UserDAOImpl userDao = new UserDao();
-    @Autowired
+  //  @Autowired
     private UserPersonalDaoImpl userPersonalDao;
-    @Autowired
+  //  @Autowired
     private UserDataDaoImpl userDataDao;
 
     private String login;

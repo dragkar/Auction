@@ -1,14 +1,15 @@
 package web.services;
 
 
+import db.DAO.UserDataDao;
 import db.DAO.UserDataDaoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 
 //@Component
 public class SignInServise {
   //  private static final Logger log = Logger.getLogger(SignInServise.class);
-    @Autowired
-    private UserDataDaoImpl userDataDao;
+ //   @Autowired
+    private UserDataDaoImpl userDataDao = new UserDataDao();
 
     /**
      * Функция авторизации
