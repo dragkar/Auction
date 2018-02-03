@@ -3,6 +3,7 @@ package db.POJO;
 import db.DAO.UserDataDao;
 import org.apache.log4j.Logger;
 
+import javax.persistence.*;
 import javax.xml.bind.annotation.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -12,6 +13,9 @@ import java.util.List;
 @XmlType(propOrder = {"id", "id_user_data","userData", "isAdmin"}, name = "Users Information")
 
 @XmlRootElement(name = "Users")
+
+@Entity
+@Table(name = "user")
 public class User {
     private static final Logger log = Logger.getLogger(User.class);
     private UserDataDao userDataDao = new UserDataDao();
@@ -45,6 +49,9 @@ public class User {
     }
 
     @XmlAttribute
+    @Id
+    @SequenceGenerator(name = "hibernateSeq", sequenceName = "HIBERNATE_SEQUENCE", allocationSize = 1)
+    @GeneratedValue( strategy = GenerationType.SEQUENCE, generator = "hibernateSeq")
     public int getId() {
         return id;
     }
@@ -72,6 +79,7 @@ public class User {
                 '}';
     }
     @XmlElement
+    @OneToOne(optional = false, mappedBy = "userData")
     public UserData getUserData() {
         return userData;
     }

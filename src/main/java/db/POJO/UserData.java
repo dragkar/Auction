@@ -2,12 +2,14 @@ package db.POJO;
 
 import org.apache.log4j.Logger;
 
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlType(propOrder = {"id", "id_personal", "userPersonal", "login", "password", "date_reg", "blocking"}, name = "Users data")
-
-@XmlRootElement(name = "UserDatas")
+@XmlRootElement(name = "UserData")
+@Entity
+@Table(name = "user_data")
 public class UserData {
     private static final Logger log = Logger.getLogger(UserData.class);
     private int id;
@@ -19,14 +21,6 @@ public class UserData {
     private boolean blocking;
 
     public UserData() {
-    }
-
-    public boolean isBlocking() {
-        return blocking;
-    }
-
-    public void setBlocking(boolean blocking) {
-        this.blocking = blocking;
     }
 
     public UserData(int id, int id_personal, String login, String password, String date_reg, boolean blocking) {
@@ -67,6 +61,14 @@ public class UserData {
         return String.valueOf((password.hashCode() + new Integer(50).hashCode()));
      }
 
+    public boolean isBlocking() {
+        return blocking;
+    }
+
+    public void setBlocking(boolean blocking) {
+        this.blocking = blocking;
+    }
+
     @Override
     public String toString() {
         return "UserData{" +
@@ -79,6 +81,9 @@ public class UserData {
                 '}';
     }
 
+    @Id
+    @SequenceGenerator(name = "hibernateSeq", sequenceName = "HIBERNATE_SEQUENCE", allocationSize = 1)
+    @GeneratedValue( strategy = GenerationType.SEQUENCE, generator = "hibernateSeq")
     public int getId() {
         return id;
     }
@@ -94,7 +99,7 @@ public class UserData {
     public void setId_personal(int id_personal) {
         this.id_personal = id_personal;
     }
-
+@OneToOne(optional = false, mappedBy = "user_personal")
     public UserPersonal getUserPersonal() {
         return userPersonal;
     }

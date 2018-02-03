@@ -2,6 +2,10 @@ package db.POJO;
 
 import org.apache.log4j.Logger;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "lots")
 public class Lots {
     private static final Logger log = Logger.getLogger(Lots.class);
     private int id;
@@ -37,6 +41,9 @@ public class Lots {
         this.startTimeInMs = startTimeInMs;
     }
 
+    @Id
+    @SequenceGenerator(name = "hibernateSeq", sequenceName = "HIBERNATE_SEQUENCE", allocationSize = 1)
+    @GeneratedValue( strategy = GenerationType.SEQUENCE, generator = "hibernateSeq")
     public int getId()
     {
         return id;
