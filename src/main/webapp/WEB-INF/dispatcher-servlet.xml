@@ -9,7 +9,7 @@
     <beans:component-scan base-package="db.DAO"/>
     <beans:component-scan base-package="db.connection"/>
     <!--<beans:component-scan base-package=" "/>-->
-    <!--<beans:component-scan base-package="configs"/>-->
+    <!--<beans:component-scan base-package="web.configs"/>-->
 
 
 

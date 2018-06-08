@@ -4,13 +4,14 @@ import db.POJO.UserData;
 import db.POJO.UserPersonal;
 import db.connection.ConnectionManager;
 import db.connection.ConnectionManagerPostgeImpl;
+import org.springframework.stereotype.Component;
 
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-//@Component
+@Component
 public class UserDataDao implements UserDataDaoImpl {
   //  private static final Logger log = Logger.getLogger(UserDataDao.class);
     private static ConnectionManager connectionManager =
@@ -31,7 +32,7 @@ public class UserDataDao implements UserDataDaoImpl {
 
 
         ResultSet resultSet = statement.executeQuery(
-                "SELECT ud.id AS user_data_id, ud.login, ud.password, ud.date_reg," +
+                "SELECT ud.id AS user_data_id, ud.login, ud.password, ud.date_reg, ud.role," +
                         " up.id AS user_personal_id, up.first_name, up.second_name," +
                         "up.last_name, up.birthday, up.sex, up. personal_account, up.id_monitored_lots, up.email   " +
                         "FROM public.user_data ud" +
@@ -53,7 +54,8 @@ public class UserDataDao implements UserDataDaoImpl {
                     userPersonal,
                     resultSet.getString("login"),
                     resultSet.getString("password"),
-                    resultSet.getObject("date_reg").toString()
+                    resultSet.getObject("date_reg").toString(),
+                    resultSet.getString("role")
             );
             dataUsers.add(userData);
         }
@@ -235,7 +237,7 @@ public class UserDataDao implements UserDataDaoImpl {
 
 
     @Override
-    public boolean searchByLogin(String login, String password) {
+    public boolean searchByLoginAndPassword(String login, String password) {
 
         try(   Connection connection = connectionManager.getConnection();
                Statement statement = connection.createStatement()) {
@@ -259,5 +261,87 @@ public class UserDataDao implements UserDataDaoImpl {
         format.applyPattern("yyyy-MM-dd");
         java.util.Date date = format.parse(strDate);
         return new Date(date.getTime());
+    }
+
+    @Override
+    public UserData getLoginAndPass(String username) throws SQLException {
+        Connection connection = connectionManager.getConnection();
+        PreparedStatement statement = connection.prepareStatement("SELECT login, password, role " +
+                "FROM user_data " +
+                "WHERE login = ?");
+        statement.setString(1, username);
+        ResultSet resultSet = statement.executeQuery();
+        if (resultSet.next()) {
+            UserData userData = new UserData();
+            userData.setLogin(resultSet.getString("login"));
+            userData.setPassword(resultSet.getString("password"));
+            userData.setRole(resultSet.getString("role"));
+            connection.close();
+            return userData;
+        }
+        connection.close();
+        return null;
+    }
+
+    @Override
+    public UserData getByLogin(String login) {
+
+            UserData userData = null;
+            Connection connection = connectionManager.getConnection();
+            Statement statement = null;
+            try {
+                statement = connection.createStatement();
+
+
+                ResultSet resultSet = statement.executeQuery(
+                        "SELECT ud.id, ud.login, ud.password,up.id AS user_personal_id, ud.date_reg, up.first_name, up.second_name, " +
+                                "up.last_name, up.birthday, up.sex, up. personal_account, up.id_monitored_lots, up.email " +
+                                "FROM  public.user_data ud JOIN public.user_personal up ON up.id = ud.id_personal " +
+                                "WHERE ud.login = '" +login +"'"
+                );
+
+                while (resultSet.next()) {
+                    UserPersonal userPersonal = new UserPersonal(
+                            resultSet.getInt("user_personal_id"),
+                            resultSet.getString("first_name"),
+                            resultSet.getString("last_name"),
+                            resultSet.getObject("birthday").toString(),
+                            resultSet.getString("sex"),
+                            resultSet.getDouble("personal_account"),
+                            resultSet.getString("id_monitored_lots"),
+                            resultSet.getString("email")
+                    );
+                    userData = new UserData(
+                            resultSet.getInt("id"),
+                            userPersonal,
+                            resultSet.getString("login"),
+                            resultSet.getString("password"),
+                            resultSet.getObject("date_reg").toString()
+                    );
+                }
+
+                connection.close();
+            } catch (SQLException e) {
+                e.getStackTrace();
+                //    log.error(e.getStackTrace());
+            }
+            return userData;
+        }
+
+    @Override
+    public int getIdByName(String username) throws SQLException {
+        Connection connection = connectionManager.getConnection();
+        PreparedStatement statement = connection.prepareStatement("SELECT id " +
+                "FROM user_data " +
+                "WHERE login = ?");
+        statement.setString(1, username);;
+        ResultSet resultSet = statement.executeQuery();
+        if (resultSet.next()) {
+            int res = resultSet.getInt("id");
+            connection.close();
+            return res;
+        }
+        connection.close();
+        return 0;
     }
 }

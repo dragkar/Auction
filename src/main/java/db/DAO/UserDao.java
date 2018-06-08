@@ -5,11 +5,12 @@ import db.POJO.UserData;
 import db.POJO.UserPersonal;
 import db.connection.ConnectionManager;
 import db.connection.ConnectionManagerPostgeImpl;
+import org.springframework.stereotype.Component;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-//@Component
+@Component
 public class UserDao implements UserDAOImpl {
    // private static final Logger log = Logger.getLogger(UserDao.class);
     private static ConnectionManager connectionManager =
@@ -18,21 +19,21 @@ public class UserDao implements UserDAOImpl {
     @Override
     public List<User> getAll()  {
         Connection connection = connectionManager.getConnection();
-        Statement statement = null;
-        List<User> users = new ArrayList<>();
-        try {
-            statement = connection.createStatement();
+            Statement statement = null;
+            List<User> users = new ArrayList<>();
+            try {
+                statement = connection.createStatement();
 
 
-        ResultSet resultSet = statement.executeQuery(
-                "SELECT cl.id, cl.admin, " +
-                        "ud.id AS user_data_id, ud.login, ud.password, ud.date_reg," +
-                        " up.id AS user_personal_id, up.first_name, up.second_name," +
-                        "up.last_name, up.birthday, up.sex, up. personal_account, up.id_monitored_lots, up.email " +
-                        "FROM public.user cl " +
-                        "JOIN public.user_data ud ON cl.id_user_data = ud.id" +
-                        " JOIN public.user_personal up ON up.id = ud.id_personal"
-        );
+                ResultSet resultSet = statement.executeQuery(
+                        "SELECT cl.id, cl.admin, " +
+                                "ud.id AS user_data_id, ud.login, ud.password, ud.date_reg," +
+                                " up.id AS user_personal_id, up.first_name, up.second_name," +
+                                "up.last_name, up.birthday, up.sex, up. personal_account, up.id_monitored_lots, up.email " +
+                                "FROM public.user cl " +
+                                "JOIN public.user_data ud ON cl.id_user_data = ud.id" +
+                                " JOIN public.user_personal up ON up.id = ud.id_personal"
+                );
 
 
 

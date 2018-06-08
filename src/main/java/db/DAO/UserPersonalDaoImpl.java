@@ -1,6 +1,5 @@
 package db.DAO;
 
-import db.POJO.UserData;
 import db.POJO.UserPersonal;
 
 import java.sql.SQLException;

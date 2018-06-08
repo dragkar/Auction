@@ -9,7 +9,7 @@ public interface UserDAOImpl {
 
     List<User> getAll() throws SQLException;
 
-    User getEntityById(Integer id) throws SQLException;
+    User getEntityById(Integer id) ;
     boolean updateIsAdminColumns(User entity);
      boolean delete(Integer id);
      boolean create(User entity);

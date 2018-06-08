@@ -16,6 +16,7 @@ public class ReadFromXML {
             Unmarshaller un = jaxbContext.createUnmarshaller();
 
             User.UsersWrapper usersWrapper = (User.UsersWrapper) un.unmarshal(new File(filePath));
+            System.out.println("111111111111111111");
             for (User user : usersWrapper.getusers()) {
                 System.out.println(user);
             }
@@ -27,10 +28,10 @@ public class ReadFromXML {
     }
 
     public static void main(String[] args) {
-//        fromXmlToObject("all_users.xml");
-        for (double i = 0; i !=1 ; i++) {
-            System.out.println(i);
-        }
+       fromXmlToObject("all_users.xml");
+//        for (double i = 0; i >2 ; i++) {
+//            System.out.println(i);
+//        }
     }
 
 }

@@ -3,19 +3,20 @@ package db.DAO;
 import db.POJO.Lots;
 import db.connection.ConnectionManager;
 import db.connection.ConnectionManagerPostgeImpl;
+import org.springframework.stereotype.Component;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-//@Component
+@Component
 public class LotsDao implements LotsDaoImpl {
 //    private static final Logger log = Logger.getLogger(LotsDao.class);
     private static ConnectionManager connectionManager =
             ConnectionManagerPostgeImpl.getInstance();
 
     @Override
-    public List<Lots> getAll() {
+    public List<Lots> getAll() throws SQLException{
         List<Lots> lots = new ArrayList<>();
         Statement statement = null;
         try (Connection connection = connectionManager.getConnection()) {
@@ -49,7 +50,7 @@ public class LotsDao implements LotsDaoImpl {
     }
 
     @Override
-    public Lots getEntityById(Integer id){
+    public Lots getEntityById(Integer id) throws SQLException{
         Lots lots = null;
         Connection connection = connectionManager.getConnection();
         Statement statement = null;
@@ -88,7 +89,7 @@ public class LotsDao implements LotsDaoImpl {
     }
 
     @Override
-    public boolean updateAllColumns(Lots entity) {
+    public boolean updateAllColumns(Lots entity) throws SQLException {
         try (Connection connection = connectionManager.getConnection()) {
             String query = "UPDATE  public.lots " +
                     " SET name = ?, comment = ?, start_price = ?, current_price = ?, current_user = ?," +
@@ -114,7 +115,7 @@ public class LotsDao implements LotsDaoImpl {
     }
 
     @Override
-    public boolean delete(Integer id) {
+    public boolean delete(Integer id) throws SQLException{
 
         try (Connection connection = connectionManager.getConnection()) {
             String query = "DELETE FROM public.lots " +
@@ -131,7 +132,7 @@ public class LotsDao implements LotsDaoImpl {
     }
 
     @Override
-    public Integer create(Lots entity) {
+    public Integer create(Lots entity) throws SQLException{
         int result = 0;
         try (Connection connection = connectionManager.getConnection()) {
             String query = "INSERT INTO lots " +

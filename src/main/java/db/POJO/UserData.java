@@ -15,8 +15,28 @@ public class UserData {
     private String password;
     private String date_reg;
     private boolean blocking;
+    private String role;
 
     public UserData() {
+    }
+
+    public UserData(int id, int id_personal, UserPersonal userPersonal, String login, String password, boolean blocking, String role) {
+        this.id = id;
+        this.id_personal = id_personal;
+        this.userPersonal = userPersonal;
+        this.login = login;
+        this.password = password;
+        this.blocking = blocking;
+        this.role = role;
+    }
+
+    public UserData(int id, UserPersonal userPersonal, String login, String password, String date_reg, String role) {
+        this.id = id;
+        this.userPersonal = userPersonal;
+        this.login = login;
+        this.password = password;
+        this.date_reg = date_reg;
+        this.role = role;
     }
 
     public boolean isBlocking() {
@@ -123,5 +143,13 @@ public class UserData {
 
     public void setDate_reg(String date_reg) {
         this.date_reg = date_reg;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

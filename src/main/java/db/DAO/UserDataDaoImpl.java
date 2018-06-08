@@ -7,13 +7,16 @@ import java.util.List;
 
 public interface UserDataDaoImpl {
 
-    List<UserData> getAll() throws SQLException;
+    List<UserData> getAll();
 
-    UserData getEntityById(Integer id) throws SQLException;
+    UserData getEntityById(Integer id) ;
     boolean updateAllColumns(UserData entity);
     boolean delete(Integer id);
     Integer create(UserData entity);
     Integer create(UserData entity, int id_personal);
     boolean searchByLogin(String login);
-    boolean searchByLogin(String login, String password);
+    boolean searchByLoginAndPassword(String login, String password);
+    UserData getLoginAndPass(String username) throws SQLException;
+UserData getByLogin(String login);
+    int getIdByName(String username) throws SQLException;
 }

@@ -4,19 +4,20 @@ package web.services;
 import db.DAO.UserDataDao;
 import db.DAO.UserDataDaoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-//@Component
-public class SignInServise {
+@Service
+public class SignInService {
   //  private static final Logger log = Logger.getLogger(SignInServise.class);
- //   @Autowired
-    private UserDataDaoImpl userDataDao = new UserDataDao();
+    @Autowired
+    private UserDataDao userDataDao;
 
     /**
      * Функция авторизации
      * @return  возвращает true, при удачной авторизации
      */
  public boolean Auth(String login, String password){
-     return userDataDao.searchByLogin(login, passwordHashCode(password));
+     return userDataDao.searchByLoginAndPassword(login, passwordHashCode(password));
  }
 
 

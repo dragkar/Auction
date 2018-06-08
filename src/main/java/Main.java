@@ -22,10 +22,10 @@ public class Main {
                 System.out.println(client.toString());
             }
 
-            System.out.println("========= update isAdmin user");
-            User clientUpdate = clientDAO.getEntityById(1);
-            clientUpdate.setisAdmin(true);
-            System.out.println(clientDAO.updateIsAdminColumns(clientUpdate));
+       //     System.out.println("========= update isAdmin user");
+         //   User clientUpdate = clientDAO.getEntityById(1);
+        //    clientUpdate.setisAdmin(true);
+        //    System.out.println(clientDAO.updateIsAdminColumns(clientUpdate));
 
             System.out.println("========= select by id user");
             User client = clientDAO.getEntityById(1);
@@ -41,9 +41,11 @@ public class Main {
                 System.out.println(userData.toString());
               //  System.out.println(userDataDAO.searchByLogin(userData.getLogin()) + " zzzzzzzzzzzzzzzzzzz");
             }
-            System.out.println("========= select by id userdata");
-            UserData userData = userDataDAO.getEntityById(1);
+            System.out.println("========= select by id userdata+++++++++++++++++++");
+            UserData userData = userDataDAO.getByLogin("test");
             if(userData!= null)
+            System.out.println(userData.toString());
+            userData = userDataDAO.getLoginAndPass("test");
             System.out.println(userData.toString());
 
             System.out.println("=========select all user personal");

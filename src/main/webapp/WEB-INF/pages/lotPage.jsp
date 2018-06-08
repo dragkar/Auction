@@ -5,9 +5,10 @@
   Time: 21:00
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <% if (request.getSession().getAttribute("login") != null) {%>
 <p align="right"><a href="/profile"><%=request.getSession().getAttribute("login")%>
-</a> | <a href="/indexEx?exit=exit">Выход</a> </p>
+</a> | <a href="/logout">Выход</a> </p>
 <%} else { %>
 <br>
 <div><p align="right"><a href="/signin">Вход</a> / <a href="/register">Регистрация</a></p></div>

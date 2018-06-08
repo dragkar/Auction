@@ -1,10 +1,7 @@
 package web.services;
 
 
-import db.DAO.UserDAOImpl;
-import db.DAO.UserDao;
-import db.DAO.UserDataDaoImpl;
-import db.DAO.UserPersonalDaoImpl;
+import db.DAO.*;
 import db.POJO.UserData;
 import db.POJO.UserPersonal;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +14,12 @@ import java.util.Date;
 //@Component
 public class RegisterService {
   //  private static final Logger log = Logger.getLogger(RegisterService.class);
-  //  @Autowired
+   // @Autowired
     private UserDAOImpl userDao = new UserDao();
+    //@Autowired
+    private UserPersonalDaoImpl userPersonalDao = new UserPersonalDao();
   //  @Autowired
-    private UserPersonalDaoImpl userPersonalDao;
-  //  @Autowired
-    private UserDataDaoImpl userDataDao;
+    private UserDataDaoImpl userDataDao = new UserDataDao();
 
     private String login;
     private String password;
